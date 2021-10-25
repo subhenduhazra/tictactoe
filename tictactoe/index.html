@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="rgb(3, 61, 95)" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="tictactoe.js"></script>
+    <script src="tictactoeAI.js"></script>
+</head>
+<body>
+    <header>
+        <div id="nav">
+            <div id="title">
+                Tic Tac Toe
+            </div>
+            <div id="menu_icon" onclick="showMenu()">
+                <span class="line" id="line1"></span>
+                <span class="line" id="line2"></span>
+                <span class="line" id="line3"></span>
+            </div>
+        </div>
+        <div id="menu">
+            
+            <div id="middle">
+
+                <div id="two_player" class="menu_item">
+                    <label class="label_text">
+                        <div id="label_2p">Two Player Mode</div>
+                        <input type="checkbox" id="two_player_mode" onchange="changePlayType(this)" />
+                    </label>
+                </div>
+
+                
+
+                <div id="name1" class="menu_item">
+                    <label class="label_text">
+                        <div class="label">Player1 Name</div>
+                        <div contenteditable="true" id="player1_name" class="textbox" onblur="changePlayerName(this)"></div>
+                    </label>
+                </div>
+
+
+
+                <div id="name2" class="menu_item"> 
+                    <label class="label_text">
+                        <div class="label">Player2 Name</div>
+                        <div contenteditable="true" id="player2_name" class="textbox" onblur="changePlayerName(this)"></div>
+                    </label>
+                </div>
+
+
+
+
+
+
+                <div id="level" class="menu_item">
+                    <div class="label">Game Level</div>
+
+
+                    <div id="mode_box">
+                        <label class="label_text">
+                            <input type="radio" id="easy" class="game_level" name="game_level" onchange="tc.changeComputerLevel('easy')" />
+                            <div class="mode_text">Easy</div>
+                        </label>
+
+                        <label class="label_text">
+                            <input type="radio"  id="medium" class="game_level" name="game_level"onchange="tc.changeComputerLevel('medium')" />
+                            <div class="mode_text">Medium</div>
+                        </label>
+
+                        <label class="label_text">
+                            <input type="radio"  id="hard" class="game_level" name="game_level"onchange="tc.changeComputerLevel('hard')" />
+                            <div class="mode_text">Hard</div>
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="bottom">
+
+                <!--a href="history.html">History</a-->
+                <a href="about.html">About</a>
+                
+            </div>
+        </div>
+    </header>
+    <section>
+        <div id="upper">
+            <div id="player1" class="player">
+                <div class="name">Player1</div>
+                <div class="board">
+                    <div class="score">0</div>
+                    <div class="sign">X</div>
+                </div>
+            </div>
+
+            <div id="alter" onclick="changeSign()"> </div>
+
+            <div id="player2" class="player">
+                <div class="name">Player2</div>
+                <div class="board">
+                    <div class="sign">O</div>
+                    <div class="score">0</div>
+                </div>
+            </div>
+        </div>
+        <div id="middle">
+            <table id="table">
+                <tr>
+                    <td id="c0_0" onclick="press([0,0])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+
+                        </div>
+                    </td>
+
+                    <td id="c0_1" onclick="press([0,1])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+                        </div>
+                    </td>
+
+                    <td id="c0_2" onclick="press([0,2])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+                        </div>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td id="c1_0" onclick="press([1,0])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+                        </div>
+                    </td>
+
+                    <td id="c1_1" onclick="press([1,1])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+                        </div>
+                    </td>
+
+                    <td id="c1_2" onclick="press([1,2])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+                        </div>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td id="c2_0" onclick="press([2,0])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+                        </div>
+                    </td>
+
+                    <td id="c2_1" onclick="press([2,1])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+                        </div>
+                    </td>
+
+                    <td id="c2_2" onclick="press([2,2])">
+                        <div class="innerCell">
+                            <div class="signCircle"></div>
+                            <div class="signCrossDiag1"></div>
+                            <div class="signCrossDiag2"></div>
+                        </div>
+                    </td>
+
+                </tr>
+                
+            </table>
+            <div id="marker"></div>
+
+            <div id="mV0" class="line_stroke"></div>
+            <div id="mV1" class="line_stroke"></div>
+            <div id="mH0" class="line_stroke"></div>
+            <div id="mH1" class="line_stroke"></div>
+            
+            <div id="lower" onclick="restart()">
+                Puddu Wins
+            </div>
+        </div>
+        
+        <div id="lower_fixed">
+            <div onclick="restart()">Restart</div>
+        </div>
+    </section>
+    <footer>
+        <div id="company">Hazra Brothers</div>
+        <div id="year">2020</div>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
