@@ -12,7 +12,7 @@ class Tictactoe{
         this.arr=[];
         
         this.player1={id:"player1",name:"Player1",sign:'x',timeWon:0,playerType:"human"};
-        this.player2={id:"player2",name:"Kitty",sign:'o',timeWon:0,playerType:"computer"};
+        this.player2={id:"player2",name:"A.I.",sign:'o',timeWon:0,playerType:"computer"};
         
         this.player2Name="Player2"
 
@@ -52,7 +52,7 @@ class Tictactoe{
         }
 
         if(this.playType=="p2c"){
-            this.player2.name="Kitty";
+            this.player2.name="A.I.";
         }else{
             this.player2.name=this.player2Name;
         }
@@ -112,7 +112,7 @@ class Tictactoe{
             }
             if(this.playType=="p2c"){
                 this.player2.playerType="computer";
-                this.player2.name="Kitty";
+                this.player2.name="A.I.";
             }
             
         }
